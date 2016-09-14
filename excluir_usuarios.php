@@ -16,4 +16,7 @@ $vResultado = mysqli_query($vConexao, $vSql);
 if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}
 echo('Registro excluido com sucesso!');
 
+echo "<br>";
+echo "<a href='consultar_usuario.php'> voltar </a>";
+
 ?>
