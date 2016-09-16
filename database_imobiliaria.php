@@ -22,7 +22,7 @@ $vResultado = mysqli_query($vConexao, $vSql);
 
 $vSql='CREATE TABLE usuarios '.
       '( '.
-      'id INT(10) NOT NULL AUTO_INCREMENT, '.
+      'id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, '.
       'nome VARCHAR(40) NOT NULL UNIQUE KEY, '.
       'senha VARCHAR(40) NOT NULL, '.
       'tipo INT(10) NOT NULL, '.
@@ -45,12 +45,23 @@ $vSql='CREATE TABLE bairros '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);
 
+$vSql='CREATE TABLE imoveis '.
+      '( '.
+      'id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, '.
+      'endereco VARCHAR(40) NOT NULL, '.
+	  'quem_cadastrou VARCHAR(40) NOT NULL, '.
+	  'valores_imoveis INT(10) NOT NULL, '.
+      'tipo VARCHAR(40) NOT NULL '.
+      '); ';
+$vResultado = mysqli_query($vConexao, $vSql);
+
 $vSql='CREATE TABLE videos '.
       '( '.
       'id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, '.
       'nome VARCHAR(40) NOT NULL, '.
       'link VARCHAR(400) NOT NULL, '.
-	  'midias INT(5) NULL '.
+	  'midias INT(5) NULL, '.
+	  'CONSTRAINT FrKmidias_videos FOREIGN KEY (midias) REFERENCES imoveis (id) '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);
 
@@ -59,18 +70,8 @@ $vSql='CREATE TABLE fotos '.
       'id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, '.
       'nome VARCHAR(40) NOT NULL, '.
       'link VARCHAR(40) NOT NULL, '.
-	  'midias INT(5) NULL '.
-      '); ';
-$vResultado = mysqli_query($vConexao, $vSql);
-
-$vSql='CREATE TABLE imoveis '.
-      '( '.
-      'id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, '.
-      'endereco VARCHAR(40) NOT NULL, '.
-	  'quem_cadastrou VARCHAR(40) NOT NULL, '.
-	  'valores_imoveis INT(10) NOT NULL, '.
-      'tipo VARCHAR(40) NOT NULL, '.
-	  'midias INT(5) NULL '.
+	  'midias INT(5) NULL, '.
+	  'CONSTRAINT FrKmidias_fotos FOREIGN KEY (midias) REFERENCES imoveis (id) '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);
 
@@ -78,8 +79,9 @@ $vSql='CREATE TABLE pessoas '.
       '( '.
       'id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, '.
       'nome VARCHAR(40) NOT NULL, '.
-      'cpf/cnpj VARCHAR(40) NOT NULL, '.
-      'usuario VARCHAR(10) NOT NULL '.
+      'cpf INT(11) NOT NULL, '.
+      'usuario INT(10) NOT NULL, '.
+	  'CONSTRAINT FrKusuario_pessoa FOREIGN KEY (usuario) REFERENCES usuarios (id) '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);
 
