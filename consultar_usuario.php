@@ -3,6 +3,13 @@
 <head>
 	<title> consultar usuario </title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!-- <script>
+			function confirma(){
+				if (!confirm('Deseja Excluir')){
+					return false;
+				}
+			}
+		</script> -->
 </head>
 <body>
 <form method = "POST" action = "consultar_usuario.php" >

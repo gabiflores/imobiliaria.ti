@@ -40,8 +40,9 @@
 			<li>
 				Confirmar Senha
 				<input type="password" name="senha2" size="20" >
-			</li>
 				<input type="button" value="verificar senha" onClick="ValidarSenha()">
+
+			</li>
 				<button> enviar </button>
 		</ul>
 		</form>
