@@ -14,9 +14,10 @@ consultar
   					<option value="aluguel" > aluguel </option>
 			</select>
 			</li>
-			Tipo
 			<li>
+			Tipo
 			<select name="tipo">
+					<option value="todos_imoveis"> Todos os imóveis </option> 
   					<option value="casa"> casa </option> 
   					<option value="apartamento" > apartamento </option>
   					<option value="boxgaragem"> box/garagem </option>
@@ -97,8 +98,14 @@ if(isset($_POST['existe'])){
 	$vConexao = mysqli_connect($vServidor, $vUsuario, $vSenha, $vBaseDados);
 	if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}
 
-		$vSql='SELECT * FROM Imoveis WHERE finalidade = "'.$finalidade.'" AND tipo = "' . $tipo . '" AND dormitorios = "' . $dormitorio . '" AND valor BETWEEN "' . $valor1 . '" AND "' . $valor2 . '" ';
+	if ($_POST['tipo'] == "todos_imoveis"){
 
+		$vSql='SELECT * FROM Imoveis';
+
+	}else{
+
+		$vSql='SELECT * FROM Imoveis WHERE finalidade = "'.$finalidade.'" AND tipo = "' . $tipo . '" AND dormitorios = "' . $dormitorio . '" AND valor BETWEEN "' . $valor1 . '" AND "' . $valor2 . '" ';
+	}
 	$vResultado=mysqli_query($vConexao, $vSql);
 	if (!$vResultado) {die('Problemas na conexão: ' . mysqli_error($vConexao));}
 
