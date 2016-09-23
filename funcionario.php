@@ -1,7 +1,8 @@
 
+
 <html>
 <head>
-	<title> pagina do gerente</title>
+	<title> pagina do funcionario</title>
 </head>
 <body>
 <?php
@@ -12,5 +13,8 @@ echo $_SESSION['tipo'];
 
 ?>
 <br>
+<a href='consultar.php'>consultar imóveis</a>
+<br>
 <a href='logout.php'>sair</a>
 </body>
+

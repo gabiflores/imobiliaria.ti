@@ -3,15 +3,22 @@
 <head>
 	<title> consultar usuario </title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<!-- <script>
+		<script>
 			function confirma(){
 				if (!confirm('Deseja Excluir')){
 					return false;
 				}
 			}
-		</script> -->
+		</script>
 </head>
 <body>
+<!-- <?php
+// session_start();
+// echo $_SESSION['nome'];
+// echo '<br>';
+// echo $_SESSION['tipo'];
+
+?> -->
 <form method = "POST" action = "consultar_usuario.php" >
 Digite o nome do usuario a ser pesquisado
 <input type = "text" name = "nome"/>
@@ -65,7 +72,7 @@ if(isset($_POST['start'])){
 	     {
 	      echo('<tr>');
 	      echo('<td>'.
-	           '<a href=excluir_usuarios.php?vId='.$vCampo['id'].'>Excluir</a>'.'<td>'.
+	           '<a onClick="confirma()" href=excluir_usuarios.php ?vId='.$vCampo['id'].'>Excluir</a>'.'<td>'.
 	           utf8_encode($vCampo['id']).'<td>'.
 	           utf8_encode($vCampo['usuario']).'<td>'.
 	           //utf8_encode($vCampo['senha']).'<td>'.
@@ -80,7 +87,12 @@ if(isset($_POST['start'])){
 }
 ?>
 
-<!-- Finalizar tabela e página -->
+<!-- Finalizar tabela e página
    </table>
+   
+
+
+   <br>
+   <a href='logout.php'>sair</a>
   </body>
 </html>

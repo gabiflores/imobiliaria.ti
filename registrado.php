@@ -36,7 +36,7 @@ require('login_bd.php');
 	$vSql='INSERT INTO usuarios (usuario,senha,tipo) VALUES ("' . $nome_usuario . '" ,"' . $senha . '", "' . $tipo . '")';
 		$vResultado=mysqli_query($vConexao, $vSql);
 		if (!$vResultado) {die('Problemas na execução: ' . mysqli_error($vConexao));}
-		echo "Usuario cadastrado com sucesso!";
+		// echo "Usuario cadastrado com sucesso!";
 		
 	}else{
 		echo "esse usuario ja existe!";

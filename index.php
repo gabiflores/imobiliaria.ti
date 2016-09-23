@@ -1,11 +1,11 @@
-login_processa.php
+login_processa.php'
 
 <html>
  	<head>
 		<title> Tela de Login </title>
 	</head>
 	<body>
-	<form method="POST" action="login.php">
+	<form method="POST" action="index.php">
 		<ul>
 			<li>
 				Usuario
@@ -55,19 +55,19 @@ var_dump($vDadosUsuario);
 
 	case 'adm':
 	echo "teste";
-		header("location: teste2.php");
+		header("location: adm.php");
 		break;
 	case 'gerente':
-		header("location:teste4.php");
+		header("location:gerente.php");
 		break;
-	case 'func':
-		header("location:teste3.php");
+	case 'funcionario':
+		header("location:funcionario.php");
 		break;
 	case 'corretor':
-		header("location:");
+		header("location:corretor.php");
 		break;
 	case 'cliente':
-		header("location:");
+		header("location:cliente.php");
 		break;
 	}
 	}else{
