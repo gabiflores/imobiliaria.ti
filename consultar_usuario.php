@@ -3,13 +3,13 @@
 <head>
 	<title> consultar usuario </title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<script>
-			function confirma(){
-				if (!confirm('Deseja Excluir')){
-					return false;
-				}
-			}
-		</script>
+		<!-- <script> -->
+			<!-- function confirma(){ -->
+				<!-- if (!confirm('Deseja Excluir')){ -->
+					<!-- return false; -->
+				<!-- } -->
+			<!-- } -->
+		<!-- </script> -->
 </head>
 <body>
 <!-- <?php
@@ -68,11 +68,11 @@ if(isset($_POST['start'])){
 	echo "<th> Editar </th>";
 	echo "</tr>";
 
-	while($vCampo=mysqli_fetch_array($vResultado)) 
-	     {
+	while($vCampo=mysqli_fetch_array($vResultado)){
+		  $vJavascript="javascript: if (confirm('Confirma a exclusão do registro?'))parent.location.href='excluir_usuarios.php?vId=".$vCampo['id']."'";
 	      echo('<tr>');
 	      echo('<td>'.
-	           '<a onClick="confirma()" href=excluir_usuarios.php ?vId='.$vCampo['id'].'>Excluir</a>'.'<td>'.
+	           '<a href="#" onClick="'.$vJavascript.'">Excluir</a>'.'<td>'.
 	           utf8_encode($vCampo['id']).'<td>'.
 	           utf8_encode($vCampo['usuario']).'<td>'.
 	           //utf8_encode($vCampo['senha']).'<td>'.
