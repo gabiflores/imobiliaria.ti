@@ -3,8 +3,22 @@
 <head>
 	<title> consultar usuario </title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script>
+			function confirma(){
+				if (!confirm('Deseja Excluir')){
+					return false;
+				}
+			}
+		</script>
 </head>
 <body>
+<!-- <?php
+// session_start();
+// echo $_SESSION['nome'];
+// echo '<br>';
+// echo $_SESSION['tipo'];
+
+?> -->
 <form method = "POST" action = "consultar_usuario.php" >
 Digite o nome do usuario a ser pesquisado
 <input type = "text" name = "nome"/>
@@ -21,12 +35,13 @@ if(isset($_POST['start'])){
 	$vConexao = mysqli_connect($vServidor, $vUsuario, $vSenha, $vBaseDados);
 	if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}
 	if(empty($_POST['nome'])){
+
 		$vSql='SELECT * '.
 	    	  'FROM usuarios ';	
-
-		}else{$vSql='SELECT * '.
-	      'FROM usuarios '.
-	      'WHERE usuario LIKE "'.$nome.'"';
+		}else{
+			$vSql='SELECT * '.
+	      	'FROM usuarios '.
+	      	'WHERE usuario LIKE "'.$nome.'"';
 	    }
 
 	$vResultado=mysqli_query($vConexao, $vSql);
@@ -48,7 +63,7 @@ if(isset($_POST['start'])){
 	echo "<th> excluir </th>";
 	echo "<th> ID </th>";
 	echo "<th> Nome </th>";
-	echo "<th> Senha </th>";
+	//echo "<th> Senha </th>";
 	echo "<th> Tipo </th>";
 	echo "<th> Editar </th>";
 	echo "</tr>";
@@ -57,10 +72,10 @@ if(isset($_POST['start'])){
 	     {
 	      echo('<tr>');
 	      echo('<td>'.
-	           '<a href=excluir_usuarios.php?vId='.$vCampo['id'].'>Excluir</a>'.'<td>'.
+	           '<a onClick="confirma()" href=excluir_usuarios.php ?vId='.$vCampo['id'].'>Excluir</a>'.'<td>'.
 	           utf8_encode($vCampo['id']).'<td>'.
 	           utf8_encode($vCampo['usuario']).'<td>'.
-	           utf8_encode($vCampo['senha']).'<td>'.
+	           //utf8_encode($vCampo['senha']).'<td>'.
 	           utf8_encode($vCampo['tipo']).'<td>'.
 	           '<a href=editar_usuario.php?vId='.$vCampo['id'].'>Editar</a>'.'</td>');
 	      echo('</tr>');
@@ -72,7 +87,12 @@ if(isset($_POST['start'])){
 }
 ?>
 
-<!-- Finalizar tabela e página -->
+<!-- Finalizar tabela e página
    </table>
+   
+
+
+   <br>
+   <a href='logout.php'>sair</a>
   </body>
 </html>
