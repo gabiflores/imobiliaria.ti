@@ -25,7 +25,7 @@ if(isset($_POST["existe"])){
 $usuario = $_POST["usuario"];
 $senha = $_POST["senha"];
 
-require('login_bd.php');
+require('../login_bd.php');
 $vConexao = mysqli_connect($vServidor, $vUsuario, $vSenha, $vBaseDados);
 
 if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}
