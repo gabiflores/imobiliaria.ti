@@ -1,7 +1,7 @@
 <?php
 
 //Conectar a base de dados a partir do arquivo de configurações
-require('configuracoes.php');
+require('../../configuracoes.php');
 
 $vConexao = mysqli_connect($vServidor, $vUsuario, $vSenha);
 if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}
@@ -16,11 +16,20 @@ if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}
 $vSql='CREATE TABLE permissoes '.
       '( '.
       'id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, '.
-	  'usuario VARCHAR(40) NOT NULL, '.
-	  'insert BOOLEAN NOT NULL, '.
+	  'descricao VARCHAR(40) NOT NULL, '.
+	  'usuarios BOOLEAN NOT NULL, '.
+	  'cidades BOOLEAN NOT NULL, '.
+	  'bairos BOOLEAN NOT NULL, '.
+	  'imoveis BOOLEAN NOT NULL, '.
+	  'videos BOOLEAN NOT NULL, '.
+	  'fotos BOOLEAN NOT NULL, '.
+	  'pessoas BOOLEAN NOT NULL, '.
+	  'financeiro BOOLEAN NOT NULL, '.
+	  'historico BOOLEAN NOT NULL, '.
+	  'inserir BOOLEAN NOT NULL, '.
 	  'edita BOOLEAN NOT NULL, '.
 	  'exclui BOOLEAN NOT NULL, '.
-	  'consulta BOOLEAN NOT NULL, '.
+	  'consulta BOOLEAN NOT NULL '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);
 
