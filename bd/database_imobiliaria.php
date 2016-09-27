@@ -81,9 +81,15 @@ $vSql='CREATE TABLE imoveis '.
       '( '.
       'id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, '.
       'endereco VARCHAR(40) NOT NULL, '.
-	  'quem_cadastrou VARCHAR(40) NOT NULL, '.
+	  'quem_cadastrou INT(10) NOT NULL, '.
 	  'valores_imoveis INT(10) NOT NULL, '.
-      'tipo VARCHAR(40) NOT NULL '.
+	  'dormitorios INT(2) NOT NULL, '.
+	  'finalidade VARCHAR(40) NOT NULL, '.
+	  'terreno_largura INT(10), '.
+	  'terreno_comprimento INT(10), '.
+	  'banheiros INT(10) NOT NULL, '.
+      'tipo VARCHAR(40) NOT NULL, '.
+	  'CONSTRAINT FrKimoveis_usuario FOREIGN KEY (quem_cadastrou) REFERENCES usuarios (id) '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);
 
