@@ -13,13 +13,15 @@ $vResultado = mysqli_query($vConexao, $vSql);
 $vConexao = mysqli_connect($vServidor, $vUsuario, $vSenha, $vBaseDados);
 if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}
 
+$i= 0;
+
 $vSql='CREATE TABLE permissoes '.
       '( '.
       'id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, '.
 	  'descricao VARCHAR(40) NOT NULL, '.
 	  'usuarios BOOLEAN NOT NULL, '.
 	  'cidades BOOLEAN NOT NULL, '.
-	  'bairos BOOLEAN NOT NULL, '.
+	  'bairros BOOLEAN NOT NULL, '.
 	  'imoveis BOOLEAN NOT NULL, '.
 	  'videos BOOLEAN NOT NULL, '.
 	  'fotos BOOLEAN NOT NULL, '.
@@ -33,8 +35,9 @@ $vSql='CREATE TABLE permissoes '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);
 
-	if (!$vResultado) {echo ('Problemas na criação da tabela permissoes erro: ' . mysqli_error());}
-	echo('tabela criada com sucesso!');
+	if (!$vResultado) {echo ('<br>Problemas na criação da tabela permissoes erro: ' . mysqli_error());
+	}else{$i=$i+1;
+	echo('<br>tabela permissoes criada com sucesso!');}
 	
 $vSql='CREATE TABLE usuarios '.
       '( '.
@@ -47,8 +50,9 @@ $vSql='CREATE TABLE usuarios '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);
 
-	if (!$vResultado) {echo ('Problemas na criação da tabela usuarios erro: ' . mysqli_error());}
-	echo('tabela criada com sucesso!');
+	if (!$vResultado) {echo ('<br>Problemas na criação da tabela usuarios erro: ' . mysqli_error());
+	}else{$i=$i+1;
+	echo('<br>tabela usuarios criada com sucesso!');}
 	
 $vSql='CREATE TABLE cidades '.
       '( '.
@@ -58,8 +62,9 @@ $vSql='CREATE TABLE cidades '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);
 
-	if (!$vResultado) {echo ('Problemas na criação da tabela cidades erro: ' . mysqli_error());}
-	echo('tabela criada com sucesso!');
+	if (!$vResultado) {echo ('<br>Problemas na criação da tabela cidades erro: ' . mysqli_error());
+	}else{$i=$i+1;
+	echo('<br>tabela cidades criada com sucesso!');}
 
 $vSql='CREATE TABLE bairros '.
       '( '.
@@ -68,8 +73,9 @@ $vSql='CREATE TABLE bairros '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);
 
-	if (!$vResultado) {echo ('Problemas na criação da tabela bairros erro: ' . mysqli_error());}
-	echo('tabela criada com sucesso!');
+	if (!$vResultado) {echo ('<br>Problemas na criação da tabela bairros erro: ' . mysqli_error());
+	}else{$i=$i+1;
+	echo('<br>tabela bairros criada com sucesso!');}
 	
 $vSql='CREATE TABLE imoveis '.
       '( '.
@@ -81,8 +87,9 @@ $vSql='CREATE TABLE imoveis '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);
 
-	if (!$vResultado) {echo ('Problemas na criação da tabela imoveis erro: ' . mysqli_error());}
-	echo('tabela criada com sucesso!');
+	if (!$vResultado) {echo ('<br>Problemas na criação da tabela imoveis erro: ' . mysqli_error());
+	}else{$i=$i+1;
+	echo('<br>tabela imoveis criada com sucesso!');}
 	
 $vSql='CREATE TABLE videos '.
       '( '.
@@ -94,8 +101,9 @@ $vSql='CREATE TABLE videos '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);
 
-	if (!$vResultado) {echo ('Problemas na criação da tabela videos erro: ' . mysqli_error());}
-	echo('tabela criada com sucesso!');
+	if (!$vResultado) {echo ('<br>Problemas na criação da tabela videos erro: ' . mysqli_error());
+	}else{$i=$i+1;
+	echo('<br>tabela videos criada com sucesso!');}
 	
 $vSql='CREATE TABLE fotos '.
       '( '.
@@ -107,22 +115,24 @@ $vSql='CREATE TABLE fotos '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);
 
-	if (!$vResultado) {echo ('Problemas na criação da tabela fotos erro: ' . mysqli_error());}
-	echo('tabela criada com sucesso!');
+	if (!$vResultado) {echo ('<br>Problemas na criação da tabela fotos erro: ' . mysqli_error());
+	}else{$i=$i+1;
+	echo('<br>tabela fotos criada com sucesso!');}
 	
 $vSql='CREATE TABLE pessoas '.
       '( '.
       'id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, '.
       'nome VARCHAR(40) NOT NULL, '.
-      'cpf INT(11) NOT NULL UNIQUE KEY, '.
+      'cpf VARCHAR(11) NOT NULL UNIQUE KEY, '.
 	  'tipo VARCHAR(40) NOT NULL, '.
       'usuario INT(10), '.
 	  'CONSTRAINT FrKusuario_pessoa FOREIGN KEY (usuario) REFERENCES usuarios (id) '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);
 	
-	if (!$vResultado) {echo ('Problemas na criação da tabela pessoas erro: ' . mysqli_error());}
-	echo('tabela criada com sucesso!');
+	if (!$vResultado) {echo ('<br>Problemas na criação da tabela pessoas erro: ' . mysqli_error());
+	}else{$i=$i+1;
+	echo('<br>tabela pessoas criada com sucesso!');}
 	
 $vSql='CREATE TABLE financeiro '.
       '( '.
@@ -135,8 +145,9 @@ $vSql='CREATE TABLE financeiro '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);
 
-	if (!$vResultado) {echo ('Problemas na criação da tabela financeiro erro: ' . mysqli_error());}
-	echo('tabela criada com sucesso!');
+	if (!$vResultado) {echo ('<br>Problemas na criação da tabela financeiro erro: ' . mysqli_error());
+	}else{$i=$i+1;
+	echo('<br>tabela financeiro criada com sucesso!');}
 	
 $vSql='CREATE TABLE historico '.
       '( '.
@@ -152,9 +163,11 @@ $vSql='CREATE TABLE historico '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);
 
-	if (!$vResultado) {echo ('Problemas na criação da tabela historico erro: ' . mysqli_error());}
-	echo('tabela criada com sucesso!');
+	if (!$vResultado) {echo ('<br>Problemas na criação da tabela historico erro: ' . mysqli_error());
+	}else{$i=$i+1;
+	echo('<br>tabela historico criada com sucesso!');}
 	
-die('banco de dados criado com sucesso ');
+if ($i===10){die('<br>banco de dados criado com sucesso');
+}else{die('<br>Problemas na criação do banco de dados');}
 mysqli_close;
 ?>
