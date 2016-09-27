@@ -1,24 +1,32 @@
-consultar
 
-<html>
- 	<head>
-		<title>  </title>
-	</head>
-	<body>
+
+<font face=Arial><html>
+
+  <center><head>
+    <meta charset="utf-8">
+    <title>Imobliária Nossa Casa</title>
+    <h1><a href="../../index.html">Imobiliária</br>
+      <span>Nossa Casa</span></a></h1>
+    <a href="../../index.html">Página Inicial</a>
+    <a href="../quemsomos/quemsomos.html">Quem somos</a>
+    <a href="consultar.php">Consulta imóveis</a>
+    <a href="../login/login.php">login</a>
+
+  <body>
 	<form method="POST" action="consultar.php">
 		<ul>
-			<li>
+
 			Finalidade
 			<select name="finalidade">
-  					<option value="compra"> compra </option> 
+  					<option value="compra"> compra </option>
   					<option value="aluguel" > aluguel </option>
 			</select>
-			</li>
-			<li>
+
+
 			Tipo
 			<select name="tipo">
-					<option value="todos_imoveis"> Todos os imóveis </option> 
-  					<option value="casa"> casa </option> 
+					<option value="todos_imoveis"> Todos os imóveis </option>
+  					<option value="casa"> casa </option>
   					<option value="apartamento" > apartamento </option>
   					<option value="boxgaragem"> box/garagem </option>
   					<option value="cobertura"> cobertura </option>
@@ -30,11 +38,10 @@ consultar
   					<option value="duplexgerminada"> duplex-germinada </option>
   					<option value="todos_tipo"> todos </option>
 			</select>
-			</li>
-			<li>
+
 			Dormitórios
 			<select name="dormitorios">
-  				<option value="1"> 1 dormitório </option> 
+  				<option value="1"> 1 dormitório </option>
   				<option value="2"> 2 dormitório </option>
   				<option value="3"> 3 dormitório </option>
   				<option value="4"> 4 dormitório </option>
@@ -47,11 +54,11 @@ consultar
   				<option value="outro"> outros </option>
   				<option value="todos"> Todos </option>
 			</select>
-			</li>
+
 			<!--<li>
 			Municipio
 			<select name="municipio">
-  				<option value="imbe"> Imbé </option> 
+  				<option value="imbe"> Imbé </option>
   				<option value="tramandai"> Tramandaí </option>
   				<option value="osorio"> Osório </option>
 			</select>
@@ -59,31 +66,34 @@ consultar
 			<li>
 			Bairro
 			<select name="bairro">
-  				<option value="v1"></option> 
+  				<option value="v1"></option>
   				<option value="v2"></option>
   				<option value="v3"></option>
 			</select>
 			</li>-->
-			<li>
+
 			Preços entre
 			<select name="valor1">
 				<option value="aluguel"> aluguel </option>
-  				<option value="2000000"> 20.000,00 </option> 
+  				<option value="2000000"> 20.000,00 </option>
   				<option value="5000000"> 50.000,00 </option>
   				<option value="10000000"> 100.000,00 </option>
 			</select>
-			A
+			à
 			<select name="valor2">
-  				<option value="5000000"> 50.000,00 </option> 
+  				<option value="5000000"> 50.000,00 </option>
   				<option value="10000000"> 10000000 </option>
   				<option value="outros"> outros </option>
 			</select>
-			</li>
+
 
 			<input type ="hidden" name="existe"/>
 	<button> consultar </button>
 	</ul>
 	</form>
+<div style="height:300px;">
+</div>
+
 </body>
 
 <?php
@@ -150,4 +160,15 @@ if(isset($_POST['existe'])){
 
    </table>
   </body>
-</html>
+  <center><footer>
+    <P>Contato Fone:(51) 9876-54321</p>
+      <p>Rua Tramandaí / Senac,RS</p>
+    <p>
+      © 2016 by Gaby, Pedro e Tiago - All rights reserved.
+    </p>
+    <a href="https://www.facebook.com/" id="facebook" target="_blank">Facebook</a>
+    <a href="https://www.twitter.com/" id="twitter" target="_blank">Twitter</a>
+    <a href="https://www.google.com//" id="googleplus" target="_blank">Google+</a>
+  </footer></center>
+
+  </html></font>
