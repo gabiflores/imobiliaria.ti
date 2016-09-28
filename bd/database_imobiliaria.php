@@ -100,7 +100,7 @@ $vResultado = mysqli_query($vConexao, $vSql);
 	
 $vSql='CREATE TABLE videos '.
       '( '.
-      'id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, '.
+      'id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, '. 
       'link VARCHAR(400) NOT NULL, '.
 	  'midias INT(5) NULL, '.
 	  'CONSTRAINT FrKmidias_videos FOREIGN KEY (midias) REFERENCES imoveis (id) '.
