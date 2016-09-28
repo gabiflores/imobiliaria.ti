@@ -41,7 +41,7 @@ if(isset($_POST['start'])){
 		}else{
 			$vSql='SELECT * '.
 	      	'FROM usuarios '.
-	      	'WHERE usuario LIKE "'.$nome.'"';
+	      	'WHERE nome LIKE "'.$nome.'"';
 	    }
 
 	$vResultado=mysqli_query($vConexao, $vSql);
@@ -65,6 +65,7 @@ if(isset($_POST['start'])){
 	echo "<th> Nome </th>";
 	//echo "<th> Senha </th>";
 	echo "<th> Tipo </th>";
+	echo "<th> Email </th>";
 	echo "<th> Editar </th>";
 	echo "</tr>";
 
@@ -74,9 +75,10 @@ if(isset($_POST['start'])){
 	      echo('<td>'.
 	           '<a href="#" onClick="'.$vJavascript.'">Excluir</a>'.'<td>'.
 	           utf8_encode($vCampo['id']).'<td>'.
-	           utf8_encode($vCampo['usuario']).'<td>'.
+	           utf8_encode($vCampo['nome']).'<td>'.
 	           //utf8_encode($vCampo['senha']).'<td>'.
 	           utf8_encode($vCampo['tipo']).'<td>'.
+			   utf8_encode($vCampo['email']).'<td>'.
 	           '<a href=../editar/editar_usuario.php?vId='.$vCampo['id'].'>Editar</a>'.'</td>');
 	      echo('</tr>');
 	     };

@@ -83,11 +83,11 @@ $vSql='CREATE TABLE imoveis '.
 	  'status VARCHAR(40) NOT NULL, '.
       'endereco VARCHAR(40) NOT NULL, '.
 	  'quem_cadastrou INT(10) NOT NULL, '.
-	  'valores_imoveis INT(10) NOT NULL, '.
+	  'valores_imoveis float(10) NOT NULL, '.
 	  'dormitorios INT(2) NOT NULL, '.
 	  'finalidade VARCHAR(40) NOT NULL, '.
-	  'terreno_largura INT(10), '.
-	  'terreno_comprimento INT(10), '.
+	  'terreno_largura float(10), '.
+	  'terreno_comprimento float(10), '.
 	  'banheiros INT(10) NOT NULL, '.
       'tipo VARCHAR(40) NOT NULL, '.
 	  'CONSTRAINT FrKimoveis_usuario FOREIGN KEY (quem_cadastrou) REFERENCES usuarios (id) '.
@@ -144,10 +144,10 @@ $vResultado = mysqli_query($vConexao, $vSql);
 $vSql='CREATE TABLE financeiro '.
       '( '.
       'id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, '.
-      'valores_imoveis INT(10) NOT NULL, '.
+      'valores_imoveis float(10) NOT NULL, '.
 	  'imovel VARCHAR(40) NOT NULL, '.
       'quem_cadastrou VARCHAR(40) NOT NULL, '.
-	  'comissao INT(10) NULL, '.
+	  'comissao float(10) NULL, '.
       'quem_vendeu VARCHAR(40) NOT NULL '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);
@@ -161,11 +161,11 @@ $vSql='CREATE TABLE historico '.
       'id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, '.
       'data DATE NOT NULL, '.
       'registro VARCHAR(40) NULL, '.
-	  'valores_imoveis INT(10) NOT NULL, '.
+	  'valores_imoveis float(10) NOT NULL, '.
 	  'imovel VARCHAR(40) NULL, '.
       'quem_cadastrou VARCHAR(40) NULL, '.
       'quem_vendeu VARCHAR(40) NULL, '.
-	  'comissao INT(10) NULL, '.
+	  'comissao float(10) NULL, '.
       'tipo INT(10) NULL '.
       '); ';
 $vResultado = mysqli_query($vConexao, $vSql);

@@ -1,6 +1,7 @@
 
 <?php
 	$finalidade = $_POST['finalidade'];
+	$status = $_POST['status'];
 	$tipo = $_POST['tipo'];
 	$dormitorios = $_POST['dormitorios'];
 
@@ -11,7 +12,7 @@
 	if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}
 
 	$vId = $_POST['id'];
-	$vSql=' UPDATE Imoveis SET finalidade = "'. $finalidade .'", tipo = "' . $tipo . '", dormitorios = "' . $dormitorios . '" WHERE id= "'. $vId .'" ; ';
+	$vSql=' UPDATE Imoveis SET finalidade = "'. $finalidade .'", tipo = "' . $status . '" tipo = "' . $tipo . '", dormitorios = "' . $dormitorios . '" WHERE id= "'. $vId .'" ; ';
 
 	$vResultado = mysqli_query($vConexao, $vSql);
 	if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}

@@ -15,6 +15,7 @@ $imoveis=mysqli_fetch_assoc($vResultado);
 var_dump($imoveis);
 
 $finalidade = $imoveis['finalidade'];
+$status = $imoveis['status'];
 $dormitorios = $imoveis['dormitorios'];
 $tipo = $imoveis['tipo'];
 $valor = $imoveis['valor'];
@@ -31,6 +32,10 @@ $id = $imoveis['id'];
 	<li>
 	Finalidade
 	<input type = "text" name = "finalidade" value = "<?php echo "$finalidade";?>"/>
+	</li>
+	<li>
+	Status
+	<input type = "text" name = "status" value = "<?php echo "$status";?>"/>
 	</li>
 	<li>
 	Tipo

@@ -21,8 +21,13 @@
   					<option value="compra"> compra </option>
   					<option value="aluguel" > aluguel </option>
 			</select>
-
-
+			
+			Status
+			<select name="status">
+  					<option value="disponivel"> disponivel </option>
+  					<option value="ocupado" > ocupado </option>
+			</select>
+			
 			Tipo
 			<select name="tipo">
 					<option value="todos_imoveis"> Todos os imóveis </option>
@@ -99,6 +104,7 @@
 <?php
 if(isset($_POST['existe'])){
 	$finalidade = $_POST['finalidade'];
+	$status = $_POST['status'];
 	$tipo = $_POST['tipo'];
 	$dormitorio = $_POST['dormitorios'];
 	$valor1 = $_POST['valor1'];
@@ -114,7 +120,7 @@ if(isset($_POST['existe'])){
 
 	}else{
 
-		$vSql='SELECT * FROM Imoveis WHERE finalidade = "'.$finalidade.'" AND tipo = "' . $tipo . '" AND dormitorios = "' . $dormitorio . '" AND valor BETWEEN "' . $valor1 . '" AND "' . $valor2 . '" ';
+		$vSql='SELECT * FROM Imoveis WHERE finalidade = "'.$finalidade.'" AND tipo = "' . $tipo . '" AND tipo = "' . $status . '" AND dormitorios = "' . $dormitorio . '" AND valor BETWEEN "' . $valor1 . '" AND "' . $valor2 . '" ';
 	}
 	$vResultado=mysqli_query($vConexao, $vSql);
 	if (!$vResultado) {die('Problemas na conexão: ' . mysqli_error($vConexao));}
@@ -134,6 +140,7 @@ if(isset($_POST['existe'])){
 	echo "<th> excluir </th>";
 	echo "<th> ID </th>";
 	echo "<th> Finalidade </th>";
+	echo "<th> Status </th>";
 	echo "<th> Tipo </th>";
 	echo "<th> Dormitorios </th>";
 	echo "<th> Valor </th>";
@@ -147,6 +154,7 @@ if(isset($_POST['existe'])){
 	        '<a href="#" onClick="'.$vJavascript.'">Excluir</a>'.'<td>'.
 	        utf8_encode($vCampo['id']).'<td>'.
 	        utf8_encode($vCampo['finalidade']).'<td>'.
+			utf8_encode($vCampo['status']).'<td>'.
 	        utf8_encode($vCampo['tipo']).'<td>'.
 	        utf8_encode($vCampo['dormitorios']).'<td>'.
 	        utf8_encode($vCampo['valor']).'<td>'.

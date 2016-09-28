@@ -10,10 +10,11 @@ $vResultado=mysqli_query($vConexao, $vSql);
 $vRegistros=mysqli_num_rows($vResultado);
 $dados=mysqli_fetch_assoc($vResultado);
 var_dump($dados);
-$usuario = $dados['usuario'];
+$nome= $dados['nome'];
 $senha = $dados['senha'];
 $tipo = $dados['tipo'];
 $id = $dados['id'];
+$email= $dados['email'];
 ?>
 
 
@@ -24,8 +25,8 @@ $id = $dados['id'];
 <form method = "POST" action = "concluir_editar.php">
 	<ul>
 	<li>
-	Usuario
-	<input type = "text" name = "usuario" value = "<?php echo "$usuario";?>"/>
+	Nome
+	<input type = "text" name = "nome" value = "<?php echo "$usuario";?>"/>
 	</li>
 	<li>
 	Senha
@@ -34,6 +35,10 @@ $id = $dados['id'];
 	<li>
 	Tipo
 	<input type = "text" name = "tipo" value = "<?php echo "$tipo";?>"/>
+	</li>
+	<li>
+	E-Mail
+	<input type = "text" name = "email" value = "<?php echo "$email";?>"/>
 	</li>
 	<input type = "hidden" name = "id" value = "<?php echo "$id";?>"/>
 	<button> Editar </button>
