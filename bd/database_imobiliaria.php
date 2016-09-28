@@ -80,6 +80,7 @@ $vResultado = mysqli_query($vConexao, $vSql);
 $vSql='CREATE TABLE imoveis '.
       '( '.
       'id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, '.
+	  'status VARCHAR(40) NOT NULL, '.
       'endereco VARCHAR(40) NOT NULL, '.
 	  'quem_cadastrou INT(10) NOT NULL, '.
 	  'valores_imoveis INT(10) NOT NULL, '.
