@@ -33,12 +33,12 @@ if(isset($_POST["existe"])){
 $usuario = $_POST["usuario"];
 $senha = $_POST["senha"];
 
-require_once('../../bd/login_bd.php');
+require_once('../configuracoes.php');
 $vConexao = mysqli_connect($vServidor, $vUsuario, $vSenha, $vBaseDados);
 
 if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}
 
-$vSql="SELECT id, usuario, senha, tipo FROM usuarios WHERE  usuario = '". $usuario ."' AND senha = '". $senha ."'";
+$vSql="SELECT id, nome, senha, tipo FROM usuarios WHERE  nome = '". $usuario ."' AND senha = '". $senha ."'";
 
 $vResultado=mysqli_query($vConexao, $vSql);
 $vRegistros=mysqli_num_rows($vResultado);
@@ -54,27 +54,27 @@ var_dump($vDadosUsuario);
 
 		if (empty($_SESSION['id'])){
    			$_SESSION['id']=$vDadosUsuario['id'];
-  			$_SESSION['nome']=$vDadosUsuario['usuario'];
+  			$_SESSION['nome']=$vDadosUsuario['nome'];
    			$_SESSION['tipo']=$vDadosUsuario['tipo'];
    			echo "ok";
    		}
 
 	switch($vDadosUsuario['tipo']){
 
-	case 'adm':
+	case '1':
 	echo "teste";
 		header("location: ../testes/adm.php");
 		break;
-	case 'gerente':
+	case '2':
 		header("location: ../testes/gerente.php");
 		break;
-	case 'funcionario':
+	case '3':
 		header("location: ../testes/funcionario.php");
 		break;
-	case 'corretor':
+	case '4':
 		header("location: ../testes/corretor.php");
 		break;
-	case 'cliente':
+	case '5':
 		header("location: ../testes/cliente.php");
 		break;
 	}

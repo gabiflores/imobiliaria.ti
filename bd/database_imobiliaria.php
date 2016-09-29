@@ -19,7 +19,7 @@ $vSql='CREATE TABLE permissoes '.
       '( '.
       'id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, '.
 	  'descricao VARCHAR(40) NOT NULL, '.
-	  'usuarios BOOLEAN NOT NULL, '.
+	  'usuarios VARCHAR(40) NOT NULL, '.
 	  'cidades BOOLEAN NOT NULL, '.
 	  'bairros BOOLEAN NOT NULL, '.
 	  'imoveis BOOLEAN NOT NULL, '.

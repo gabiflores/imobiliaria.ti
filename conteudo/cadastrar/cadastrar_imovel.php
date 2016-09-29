@@ -104,7 +104,7 @@ cadastrar_imovel.php
 
 <?php
 if(isset($_POST['existe'])){
-	require_once('../../bd/login_bd.php');
+	require_once('../configuracoes.php');
 	$vConexao = mysqli_connect($vServidor, $vUsuario, $vSenha, $vBaseDados);
 
 	if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}
@@ -174,9 +174,9 @@ if(isset($_POST['existe'])){
 				$vSql='INSERT INTO imoveis (status,endereco,valores_imoveis,dormitorios,finalidade,terreno_largura,terreno_comprimento,banheiros,tipo) VALUES ("' . $status . '", "' . $endereco . '", "' . $valor . '", "' . $dormitorios . '", "' . $finalidade . '", "' . $largura . '", "' . $comprimento . '", "' . $banheiros . '", "' . $tipo . '")';
 	
 				$vSql='INSERT INTO fotos (nome) VALUES ("' . $imagem . '");';
-
+				$vResultado=mysqli_query($vSql);
+				
 				$vSql='INSERT INTO videos (link) VALUES ("' . $url_video . '");';
-
 				$vResultado=mysqli_query($vSql);
 				//onde string message = mensagem retorno de erro de gravaçao de dados
 
