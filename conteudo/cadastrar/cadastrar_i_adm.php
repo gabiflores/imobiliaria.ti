@@ -4,12 +4,12 @@
   <center><head>
     <meta charset="utf-8">
     <title>cadastro de imoveis</title>
-    <h1><a href="../testes/adm.php">Imobiliária</br>
+    <h1><a href="index.html">Imobiliária</br>
       <span>Nossa Casa</span></a></h1>
-    <a href="../testes/adm.php">Página Inicial</a>
+    <a href="#">Página Inicial</a>
 	<a href="../cadastrar/cadastra_gerente.php">cadastrar usuarios</a>
 	<!-- <a href="../cadastrar/cadastrar_imovel.php">cadastrar imóveis</a> -->
-    <a href="../quemsomos/quemsomos1.html">Quem somos</a>
+    <a href="../quemsomos/quemsomos.html">Quem somos</a>
     <a href="../consultar/consultar.php">Consulta imóveis</a>
 	<a href="../consultar/consultar_usuario.php">Consulta usuarios</a>
     <a href="../login/logout.php">logout</a>
@@ -26,8 +26,8 @@
 			<li>
 			status
 			<select name="status">
-  					<option value="ocupado"> ocupado </option> 
-  					<option value="disponivel" > disponivel </option>
+  					<option value="ocupada"> ocupada </option> 
+  					<option value="desocupada" > desocupada </option>
 			</select>
 			</li>
 			<li>
@@ -43,6 +43,7 @@
 			
 			Tipo
 			<select name="tipo">
+					<option value="todos_imoveis"> Todos os imóveis </option> 
   					<option value="casa"> casa </option> 
   					<option value="apartamento" > apartamento </option>
   					<option value="boxgaragem"> box/garagem </option>
@@ -53,6 +54,7 @@
   					<option value="sala"> sala </option>
   					<option value="predio"> prédio </option>
   					<option value="duplexgerminada"> duplex-germinada </option>
+  					<option value="todos_tipo"> todos </option>
 			</select>
 			</li>
 			<li>
@@ -68,6 +70,8 @@
   				<option value="8"> 8 dormitórios </option>
   				<option value="9"> 9 dormitórios </option>
   				<option value="10"> 10 dormitórios </option>
+  				<option value="outro"> outros </option>
+  				<option value="todos"> Todos </option>
 			</select>
 			
 			banheiros
@@ -82,6 +86,8 @@
   				<option value="8"> 8 banheiros </option>
   				<option value="9"> 9 banheiros </option>
   				<option value="10"> 10 banheiros </option>
+  				<option value="outro"> outros </option>
+  				<option value="todos"> Todos </option>
 			</select>
 			</li>
 			<li>

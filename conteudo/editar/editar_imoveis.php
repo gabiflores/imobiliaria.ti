@@ -7,7 +7,7 @@ require_once "../consultar/consultar.php";
 $vConexao = mysqli_connect($vServidor, $vUsuario, $vSenha, $vBaseDados);
 if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}
 $vId = $_GET["vId"];
-$vSql= " SELECT * FROM Imoveis WHERE id= '". $vId ."'";
+$vSql= " SELECT * FROM imoveis WHERE id= '". $vId ."'";
 $vResultado=mysqli_query($vConexao, $vSql);
 $vRegistros=mysqli_num_rows($vResultado);
 $imoveis=mysqli_fetch_assoc($vResultado);
@@ -18,7 +18,7 @@ $finalidade = $imoveis['finalidade'];
 $status = $imoveis['status'];
 $dormitorios = $imoveis['dormitorios'];
 $tipo = $imoveis['tipo'];
-$valor = $imoveis['valor'];
+$valor = $imoveis['valores_imoveis'];
 $id = $imoveis['id'];
 ?>
 
@@ -44,6 +44,10 @@ $id = $imoveis['id'];
 	<li>
 	Dormitorios
 	<input type = "text" name = "dormitorios" value = "<?php echo "$dormitorios";?>"/>
+	</li>
+	<li>
+	valor
+	<input type = "text" name = "valor" value = "<?php echo "$valor";?>"/>
 	</li>
 	<input type = "hidden" name = "id" value = "<?php echo "$id";?>"/>
 	<button> Editar </button>

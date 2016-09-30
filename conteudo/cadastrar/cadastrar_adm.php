@@ -4,12 +4,12 @@
   <center><head>
     <meta charset="utf-8">
     <title>cadastro de usuarios</title>
-    <h1><a href="../testes/adm.php">Imobiliária</br>
+    <h1><a href="index.html">Imobiliária</br>
       <span>Nossa Casa</span></a></h1>
-    <a href="../testes/adm.php">Página Inicial</a>
+    <a href="#">Página Inicial</a>
 	<!-- <a href="../cadastrar/cadastra_gerente.php">cadastrar usuarios</a> -->
 	<a href="../cadastrar/cadastrar_imovel.php">cadastrar imóveis</a>
-    <a href="../quemsomos/quemsomos1.html">Quem somos</a>
+    <a href="../quemsomos/quemsomos.html">Quem somos</a>
     <a href="../consultar/consultar.php">Consulta imóveis</a>
 	<a href="../consultar/consultar_usuario.php">Consulta usuarios</a>
     <a href="../login/logout.php">logout</a>
@@ -54,10 +54,10 @@ if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}
 				Tipo de Permissão
 				<select name="tipo">
   					<option value="2"> Gerente </option>
-  					<!-- <option value="3"> Financeiro </option> -->
-  					<option value="3"> Funcionario </option>
-  					<option value="4"> Corretor </option>
-  					<option value="5"> Cliente </option>
+  					<option value="3"> Financeiro </option>
+  					<option value="4"> Funcionario </option>
+  					<option value="5"> Corretor </option>
+  					<option value="6"> Cliente </option>
 				</select>
 			</li>
 			<li>

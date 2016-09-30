@@ -11,7 +11,7 @@
 	if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}
 
 	$vId = $_POST['id'];
-	$vSql=' UPDATE usuarios SET usuario = "'. $nome .'", senha = "' . $senha . '", email = "' . $email . '", tipo = "' . $tipo . '" WHERE id= "'. $vId .'" ; ';
+	$vSql=' UPDATE usuarios SET nome = "'. $nome .'", senha = "' . $senha . '", email = "' . $email . '", tipo = "' . $tipo . '" WHERE id= "'. $vId .'" ; ';
 
 	$vResultado = mysqli_query($vConexao, $vSql);
 	if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}

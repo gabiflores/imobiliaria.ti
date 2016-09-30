@@ -5,15 +5,15 @@
   <center><head>
     <meta charset="utf-8">
     <title>Imobliária Nossa Casa</title>
-    <h1><a href="../../index.html">Imobiliária</br>
+    <h1><a href="../testes/cliente.php">Imobiliária</br>
       <span>Nossa Casa</span></a></h1>
-    <a href="../../index.html">Página Inicial</a>
-    <a href="../quemsomos/quemsomos.html">Quem somos</a>
-     <a href="../cadastrar/sign_up_ok.php">sign up</a>
-    <a href="../login/login.php">login</a>
+    <a href="../testes/cliente.php">Página Inicial</a>
+    <a href="../quemsomos/quemsomos5.html">Quem somos</a>
+    <!-- <a href="consultar.php">Consulta imóveis</a> -->
+    <a href="../login/logout.php">logout</a>
 
   <body>
-	<form method="POST" action="consultar_i.php">
+	<form method="POST" action="consultar_c.php">
 		<ul>
 
 			Finalidade
@@ -30,7 +30,6 @@
 			
 			Tipo
 			<select name="tipo">
-					<!-- <option value="todos_imoveis"> Todos os imóveis </option> -->
   					<option value="casa"> casa </option>
   					<option value="apartamento" > apartamento </option>
   					<option value="boxgaragem"> box/garagem </option>

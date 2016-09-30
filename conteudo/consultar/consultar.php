@@ -5,13 +5,12 @@
   <center><head>
     <meta charset="utf-8">
     <title>Imobliária Nossa Casa</title>
-    <h1><a href="../../index.html">Imobiliária</br>
+    <h1><a href="../testes/adm.php">Imobiliária</br>
       <span>Nossa Casa</span></a></h1>
-    <a href="../../index.html">Página Inicial</a>
-    <a href="../quemsomos/quemsomos.html">Quem somos</a>
+    <a href="../testes/adm.php">Página Inicial</a>
+    <a href="../quemsomos/quemsomos1.html">Quem somos</a>
     <!-- <a href="consultar.php">Consulta imóveis</a> -->
-    <a href="../cadastrar/sign_up_ok.php">sign up</a>
-    <a href="../login/login.php">login</a>
+    <a href="../login/logout.php">logout</a>
 
   <body>
 	<form method="POST" action="consultar.php">
@@ -31,7 +30,6 @@
 			
 			Tipo
 			<select name="tipo">
-					<option value="todos_imoveis"> Todos os imóveis </option>
   					<option value="casa"> casa </option>
   					<option value="apartamento" > apartamento </option>
   					<option value="boxgaragem"> box/garagem </option>
@@ -42,7 +40,7 @@
   					<option value="sala"> sala </option>
   					<option value="predio"> prédio </option>
   					<option value="duplexgerminada"> duplex-germinada </option>
-  					<option value="todos_tipo"> todos </option>
+  					
 			</select>
 
 			Dormitórios
@@ -57,13 +55,12 @@
   				<option value="8"> 8 dormitório </option>
   				<option value="9"> 9 dormitório </option>
   				<option value="10"> 10 dormitório </option>
-  				<option value="outro"> outros </option>
-  				<option value="todos"> Todos </option>
+  				
 			</select>
 
 			Preços entre
 			<select name="valor1">
-				<option value="aluguel"> aluguel </option>
+				<option value="500"> 500,00 </option>
   				<option value="2000000"> 20.000,00 </option>
   				<option value="5000000"> 50.000,00 </option>
   				<option value="10000000"> 100.000,00 </option>
@@ -72,7 +69,7 @@
 			<select name="valor2">
   				<option value="5000000"> 50.000,00 </option>
   				<option value="10000000"> 10000000 </option>
-  				<option value="outros"> outros </option>
+  				<option value="100000000000000000"> 100000000000000000 </option>
 			</select>
 
 

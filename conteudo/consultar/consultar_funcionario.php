@@ -5,15 +5,15 @@
   <center><head>
     <meta charset="utf-8">
     <title>Imobliária Nossa Casa</title>
-    <h1><a href="../../index.html">Imobiliária</br>
+    <h1><a href="../testes/funcionario.php">Imobiliária</br>
       <span>Nossa Casa</span></a></h1>
-    <a href="../../index.html">Página Inicial</a>
-    <a href="../quemsomos/quemsomos.html">Quem somos</a>
-     <a href="../cadastrar/sign_up_ok.php">sign up</a>
-    <a href="../login/login.php">login</a>
+    <a href="../testes/funcionario.php">Página Inicial</a>
+    <a href="../quemsomos/quemsomos3.html">Quem somos</a>
+    <!-- <a href="consultar.php">Consulta imóveis</a> -->
+    <a href="../login/logout.php">logout</a>
 
   <body>
-	<form method="POST" action="consultar_i.php">
+	<form method="POST" action="consultar_funcionario.php">
 		<ul>
 
 			Finalidade
@@ -41,6 +41,7 @@
   					<option value="sala"> sala </option>
   					<option value="predio"> prédio </option>
   					<option value="duplexgerminada"> duplex-germinada </option>
+  					
 			</select>
 
 			Dormitórios
@@ -55,6 +56,7 @@
   				<option value="8"> 8 dormitório </option>
   				<option value="9"> 9 dormitório </option>
   				<option value="10"> 10 dormitório </option>
+  				
 			</select>
 
 			Preços entre
@@ -67,8 +69,8 @@
 			à
 			<select name="valor2">
   				<option value="5000000"> 50.000,00 </option>
-  				<option value="10000000"> 100.000,00 </option>
-  				<option value="1000000000000000000"> 1000000000000000000 </option>
+  				<option value="10000000"> 10000000 </option>
+  				<option value="100000000000000000"> 100000000000000000 </option>
 			</select>
 
 
@@ -112,24 +114,28 @@ if(isset($_POST['existe'])){
 	echo "<table border='1'>";
 	echo('Registros: '.$vRegistros.'</br></br>');
 	echo "<tr>";
+	echo "<th> excluir </th>";
 	echo "<th> ID </th>";
 	echo "<th> Finalidade </th>";
 	echo "<th> Status </th>";
 	echo "<th> Tipo </th>";
 	echo "<th> Dormitorios </th>";
 	echo "<th> Valor </th>";
+	echo "<th> Editar </th>";
 	echo "</tr>";
 
 	while($vCampo=mysqli_fetch_array($vResultado)){
-		
+		 $vJavascript="javascript: if (confirm('Confirma a exclusão do registro?'))parent.location.href='../excluir/excluir_imoveis.php?vId=".$vCampo['id']."'";
 	    echo('<tr>');
 	    echo('<td>'.
+	        '<a href="#" onClick="'.$vJavascript.'">Excluir</a>'.'<td>'.
 	        utf8_encode($vCampo['id']).'<td>'.
 	        utf8_encode($vCampo['finalidade']).'<td>'.
 			utf8_encode($vCampo['status']).'<td>'.
 	        utf8_encode($vCampo['tipo']).'<td>'.
 	        utf8_encode($vCampo['dormitorios']).'<td>'.
-	        utf8_encode($vCampo['valores_imoveis']).'</td>');
+	        utf8_encode($vCampo['valores_imoveis']).'<td>'.
+	        '<a href=../editar/editar_imoveis.php?vId='.$vCampo['id'].'>Editar</a>'.'</td>');
 	    echo('</tr>');
 	};
 

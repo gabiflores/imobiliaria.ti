@@ -9,7 +9,7 @@ if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}
 
 //Excluir na tabela de dados
 $vId = $_GET["vId"];
-$vSql='DELETE FROM Imoveis '.
+$vSql='DELETE FROM imoveis '.
       'WHERE id='.$vId;
 $vResultado = mysqli_query($vConexao, $vSql);
 if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}

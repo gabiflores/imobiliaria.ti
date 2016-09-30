@@ -4,6 +4,7 @@
 	$status = $_POST['status'];
 	$tipo = $_POST['tipo'];
 	$dormitorios = $_POST['dormitorios'];
+	$valor = $_POST['valor'];
 
 	ini_set('default_charset','utf-8');
 
@@ -12,10 +13,10 @@
 	if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}
 
 	$vId = $_POST['id'];
-	$vSql=' UPDATE Imoveis SET finalidade = "'. $finalidade .'", tipo = "' . $status . '" tipo = "' . $tipo . '", dormitorios = "' . $dormitorios . '" WHERE id= "'. $vId .'" ; ';
+	$vSql='UPDATE imoveis SET finalidade = "'. $finalidade .'", status = "' . $status . '" tipo = "' . $tipo . '", dormitorios = "' . $dormitorios . '", valores_imoveis = "' . $valor . '" WHERE id= "'. $vId .'" ; ';
 
 	$vResultado = mysqli_query($vConexao, $vSql);
-	if (!$vConexao) {die('Problemas na conexão: ' . mysqli_connect_error());}
+	if (!$vResultado) {die('Problemas na conexão: ' . mysqli_error($vConexao));}
 	echo('Imovel editado com sucesso');
 
 	echo "<br>";

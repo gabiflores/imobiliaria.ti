@@ -26,7 +26,7 @@ $email= $dados['email'];
 	<ul>
 	<li>
 	Nome
-	<input type = "text" name = "nome" value = "<?php echo "$usuario";?>"/>
+	<input type = "text" name = "nome" value = "<?php echo "$nome";?>"/>
 	</li>
 	<li>
 	Senha
