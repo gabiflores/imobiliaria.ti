@@ -1,31 +1,35 @@
-
+<!DOCTYPE html>
 <html>
-<head>
-	<title> consultar usuario </title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<!-- <script> -->
-			<!-- function confirma(){ -->
-				<!-- if (!confirm('Deseja Excluir')){ -->
-					<!-- return false; -->
-				<!-- } -->
-			<!-- } -->
-		<!-- </script> -->
-</head>
-<body>
-<!-- <?php
-// session_start();
-// echo $_SESSION['nome'];
-// echo '<br>';
-// echo $_SESSION['tipo'];
+<font face=Arial>
+  <center><head>
+    <meta charset="utf-8">
+    <title>Página Adiministrativa</title>
+    <h1><a href="#">Imobiliária</br>
+      <span>Nossa Casa</span></a></h1>
+    <a href="../testes/adm.php">Página Inicial</a>
+	<a href="../cadastrar/cadastra_gerente.php">cadastrar usuarios</a>
+	<a href="../cadastrar/cadastrar_imovel.php">cadastrar imóveis</a>
+    <a href="../quemsomos/quemsomos.html">Quem somos</a>
+    <a href="../consultar/consultar.php">Consulta imóveis</a>
+	<!-- <a href="../consultar/consultar_usuario.php">Consulta usuarios</a> -->
+    <a href="../login/logout.php">logout</a>
 
-?> -->
+  </head></center>
+<center><body>
+<br>
+<br>
+
 <form method = "POST" action = "consultar_usuario.php" >
 Digite o nome do usuario a ser pesquisado
 <input type = "text" name = "nome"/>
 <br>
 <input type = "hidden" name = "start">
 <button> Consultar </button>
-</form>
+</form></center>
+<br>
+<br>
+
+
 
 <?php
 
@@ -53,7 +57,7 @@ if(isset($_POST['start'])){
 }	
 ?>
 
-<table border="1">
+<center><table border="1">
 
 <?php
 if(isset($_POST['start'])){
@@ -89,12 +93,20 @@ if(isset($_POST['start'])){
 }
 ?>
 
-<!-- Finalizar tabela e página
-   </table>
+
+</table></center>
+ <br>
+ <br>
    
-
-
-   <br>
-   <a href='logout.php'>sair</a>
-  </body>
+</body>
+  <center><footer>
+    <P>Contato Fone:(51) 9876-54321</p>
+      <p>Rua Tramandaí / Senac,RS</p>
+    <p>
+      © 2016 by Gaby, Pedro e Tiago - All rights reserved.
+    </p>
+    <a href="https://www.facebook.com/" id="facebook" target="_blank">Facebook</a>
+    <a href="https://www.twitter.com/" id="twitter" target="_blank">Twitter</a>
+    <a href="https://www.google.com//" id="googleplus" target="_blank">Google+</a>
+  </footer></center>
 </html>

@@ -9,7 +9,8 @@
       <span>Nossa Casa</span></a></h1>
     <a href="../../index.html">Página Inicial</a>
     <a href="../quemsomos/quemsomos.html">Quem somos</a>
-    <a href="consultar.php">Consulta imóveis</a>
+    <!-- <a href="consultar.php">Consulta imóveis</a> -->
+    <a href="../cadastrar/sign_up_ok.php">sign up</a>
     <a href="../login/login.php">login</a>
 
   <body>
@@ -25,7 +26,7 @@
 			Status
 			<select name="status">
   					<option value="disponivel"> disponivel </option>
-  					<option value="ocupado" > ocupado </option>
+  					<option value="ocupado" > ocupada </option>
 			</select>
 			
 			Tipo
@@ -60,23 +61,6 @@
   				<option value="todos"> Todos </option>
 			</select>
 
-			<!--<li>
-			Municipio
-			<select name="municipio">
-  				<option value="imbe"> Imbé </option>
-  				<option value="tramandai"> Tramandaí </option>
-  				<option value="osorio"> Osório </option>
-			</select>
-			</li>
-			<li>
-			Bairro
-			<select name="bairro">
-  				<option value="v1"></option>
-  				<option value="v2"></option>
-  				<option value="v3"></option>
-			</select>
-			</li>-->
-
 			Preços entre
 			<select name="valor1">
 				<option value="aluguel"> aluguel </option>
@@ -96,7 +80,7 @@
 	<button> consultar </button>
 	</ul>
 	</form>
-<div style="height:300px;">
+<div style="height:20px;">
 </div>
 
 </body>
@@ -116,22 +100,17 @@ if(isset($_POST['existe'])){
 
 	if ($_POST['tipo'] == "todos_imoveis"){
 
-		$vSql='SELECT * FROM Imoveis';
+		$vSql='SELECT * FROM imoveis';
 
 	}else{
 
-		$vSql='SELECT * FROM Imoveis WHERE finalidade = "'.$finalidade.'" AND tipo = "' . $tipo . '" AND tipo = "' . $status . '" AND dormitorios = "' . $dormitorio . '" AND valor BETWEEN "' . $valor1 . '" AND "' . $valor2 . '" ';
+		$vSql='SELECT * FROM imoveis WHERE status = "'.$status.'" AND valores_imoveis BETWEEN "' . $valor1 . '" AND "' . $valor2 . '" AND dormitorios = "' . $dormitorio . '" AND finalidade = "' . $finalidade . '"';
 	}
 	$vResultado=mysqli_query($vConexao, $vSql);
 	if (!$vResultado) {die('Problemas na conexão: ' . mysqli_error($vConexao));}
 
 	$vRegistros=mysqli_num_rows($vResultado);
 	if ($vRegistros==0) {die('Nenhum registro encontrado!');}
-
-	//$imoveis=mysqli_fetch_array($vResultado);
-
-	//var_dump($imoveis);
-
 
 
 	echo "<table border='1'>";
@@ -157,7 +136,7 @@ if(isset($_POST['existe'])){
 			utf8_encode($vCampo['status']).'<td>'.
 	        utf8_encode($vCampo['tipo']).'<td>'.
 	        utf8_encode($vCampo['dormitorios']).'<td>'.
-	        utf8_encode($vCampo['valor']).'<td>'.
+	        utf8_encode($vCampo['valores_imoveis']).'<td>'.
 	        '<a href=../editar/editar_imoveis.php?vId='.$vCampo['id'].'>Editar</a>'.'</td>');
 	    echo('</tr>');
 	};
@@ -168,6 +147,8 @@ if(isset($_POST['existe'])){
 
    </table>
   </body>
+  <div style="height:100px;">
+</div>
   <center><footer>
     <P>Contato Fone:(51) 9876-54321</p>
       <p>Rua Tramandaí / Senac,RS</p>

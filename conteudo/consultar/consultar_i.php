@@ -5,15 +5,15 @@
   <center><head>
     <meta charset="utf-8">
     <title>Imobliária Nossa Casa</title>
-    <h1><a href="../../index.html">Imobiliária</br>
+    <h1><a href="#">Imobiliária</br>
       <span>Nossa Casa</span></a></h1>
-    <a href="../../index.html">Página Inicial</a>
-    <a href="../quemsomos/quemsomos.html">Quem somos</a>
-    <a href="consultar.php">Consulta imóveis</a>
-    <a href="../login/login.php">login</a>
+    <a href="#">Página Inicial</a>
+    <a href="../quemsomos/quemsomos5.html">Quem somos</a>
+    <!-- <a href="consultar.php">Consulta imóveis</a> -->
+    <a href="../login/logout.php">logout</a>
 
   <body>
-	<form method="POST" action="consultar.php">
+	<form method="POST" action="consultar_i.php">
 		<ul>
 
 			Finalidade
@@ -25,7 +25,7 @@
 			Status
 			<select name="status">
   					<option value="disponivel"> disponivel </option>
-  					<option value="ocupado" > ocupado </option>
+  					<option value="ocupado" > ocupada </option>
 			</select>
 			
 			Tipo
@@ -60,23 +60,6 @@
   				<option value="todos"> Todos </option>
 			</select>
 
-			<!--<li>
-			Municipio
-			<select name="municipio">
-  				<option value="imbe"> Imbé </option>
-  				<option value="tramandai"> Tramandaí </option>
-  				<option value="osorio"> Osório </option>
-			</select>
-			</li>
-			<li>
-			Bairro
-			<select name="bairro">
-  				<option value="v1"></option>
-  				<option value="v2"></option>
-  				<option value="v3"></option>
-			</select>
-			</li>-->
-
 			Preços entre
 			<select name="valor1">
 				<option value="aluguel"> aluguel </option>
@@ -96,7 +79,7 @@
 	<button> consultar </button>
 	</ul>
 	</form>
-<div style="height:300px;">
+<div style="height:20px;">
 </div>
 
 </body>
@@ -116,11 +99,11 @@ if(isset($_POST['existe'])){
 
 	if ($_POST['tipo'] == "todos_imoveis"){
 
-		$vSql='SELECT * FROM Imoveis';
+		$vSql='SELECT * FROM imoveis';
 
 	}else{
 
-		$vSql='SELECT * FROM Imoveis WHERE finalidade = "'.$finalidade.'" AND tipo = "' . $tipo . '" AND tipo = "' . $status . '" AND dormitorios = "' . $dormitorio . '" AND valor BETWEEN "' . $valor1 . '" AND "' . $valor2 . '" ';
+		$vSql='SELECT * FROM imoveis WHERE status = "'.$status.'" AND valores_imoveis BETWEEN "' . $valor1 . '" AND "' . $valor2 . '" AND dormitorios = "' . $dormitorio . '" AND finalidade = "' . $finalidade . '"';
 	}
 	$vResultado=mysqli_query($vConexao, $vSql);
 	if (!$vResultado) {die('Problemas na conexão: ' . mysqli_error($vConexao));}
@@ -128,37 +111,28 @@ if(isset($_POST['existe'])){
 	$vRegistros=mysqli_num_rows($vResultado);
 	if ($vRegistros==0) {die('Nenhum registro encontrado!');}
 
-	//$imoveis=mysqli_fetch_array($vResultado);
-
-	//var_dump($imoveis);
-
-
 
 	echo "<table border='1'>";
 	echo('Registros: '.$vRegistros.'</br></br>');
 	echo "<tr>";
-	<!-- echo "<th> excluir </th>"; -->
 	echo "<th> ID </th>";
 	echo "<th> Finalidade </th>";
 	echo "<th> Status </th>";
 	echo "<th> Tipo </th>";
 	echo "<th> Dormitorios </th>";
 	echo "<th> Valor </th>";
-	<!-- echo "<th> Editar </th>"; -->
 	echo "</tr>";
 
 	while($vCampo=mysqli_fetch_array($vResultado)){
-		 <!-- $vJavascript="javascript: if (confirm('Confirma a exclusão do registro?'))parent.location.href='../excluir/excluir_imoveis.php?vId=".$vCampo['id']."'"; -->
+		
 	    echo('<tr>');
 	    echo('<td>'.
-	        <!-- '<a href="#" onClick="'.$vJavascript.'">Excluir</a>'.'<td>'. -->
 	        utf8_encode($vCampo['id']).'<td>'.
 	        utf8_encode($vCampo['finalidade']).'<td>'.
 			utf8_encode($vCampo['status']).'<td>'.
 	        utf8_encode($vCampo['tipo']).'<td>'.
 	        utf8_encode($vCampo['dormitorios']).'<td>'.
-	        utf8_encode($vCampo['valor']).'<td>'.
-	        <!-- '<a href=../editar/editar_imoveis.php?vId='.$vCampo['id'].'>Editar</a>'.'</td>'); -->
+	        utf8_encode($vCampo['valores_imoveis']).'</td>');
 	    echo('</tr>');
 	};
 
@@ -168,6 +142,8 @@ if(isset($_POST['existe'])){
 
    </table>
   </body>
+  <div style="height:100px;">
+</div>
   <center><footer>
     <P>Contato Fone:(51) 9876-54321</p>
       <p>Rua Tramandaí / Senac,RS</p>

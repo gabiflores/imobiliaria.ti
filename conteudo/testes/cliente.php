@@ -3,15 +3,12 @@
 <font face=Arial>
   <center><head>
     <meta charset="utf-8">
-    <title>Página Adiministrativa</title>
-    <h1><a href="index.html">Imobiliária</br>
+    <title>Imobliária Nossa Casa</title>
+    <h1><a href="cliente.php">Imobiliária</br>
       <span>Nossa Casa</span></a></h1>
-    <a href="#">Página Inicial</a>
-	<a href="../cadastrar/cadastra_gerente.php">cadastrar usuarios</a>
-	<a href="../cadastrar/cadastrar_imovel.php">cadastrar imóveis</a>
-    <a href="../quemsomos/quemsomos.html">Quem somos</a>
-    <a href="../consultar/consultar.php">Consulta imóveis</a>
-	<a href="../consultar/consultar_usuario.php">Consulta usuarios</a>
+    <a href="cliente.php">Página Inicial</a>
+    <a href="../quemsomos/quemsomos5.html">Quem somos</a>
+    <a href="../consultar/consultar_i.php">Consulta imóveis</a>
     <a href="../login/logout.php">logout</a>
 
   </head></center>
@@ -131,4 +128,7 @@ if($_SESSION['tipo']==1){
     <a href="https://www.google.com//" id="googleplus" target="_blank">Google+</a>
   </footer></center>
 </html>
+
+
+
 

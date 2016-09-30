@@ -8,14 +8,15 @@
       <span>Nossa Casa</span></a></h1>
     <a href="index.html">Página Inicial</a>
     <a href="conteudo/quemsomos/quemsomos.html">Quem somos</a>
-    <a href="conteudo/consultar/consultar.php">Consulta imóveis</a>
+    <a href="conteudo/consultar/consultar_i.php">Consulta imóveis</a>
+    <a href="conteudo/cadastrar/sign_up_ok.php">sign up</a>
     <a href="conteudo/login/login.php">login</a>
 
   </head></center>
 
 
   <center><body>
-    <form method="POST" action="consultar.php">
+    <form method="POST" action="conteudo/consultar/consultar_i.php">
   		<ul>
 
   			Finalidade
@@ -23,6 +24,13 @@
     					<option value="compra"> compra </option>
     					<option value="aluguel" > aluguel </option>
   			</select>
+
+
+        Status
+        <select name="status">
+              <option value="disponivel"> disponivel </option>
+              <option value="ocupado" > ocupado </option>
+        </select>
 
 
   			Tipo

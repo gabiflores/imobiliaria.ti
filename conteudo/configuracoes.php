@@ -2,7 +2,7 @@
 
 $vServidor="localhost";
 $vUsuario="root";
-$vSenha="";
+$vSenha="16099515";
 $vBaseDados="imobiliaria";
 
 ?>

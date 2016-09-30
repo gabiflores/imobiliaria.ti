@@ -17,11 +17,20 @@
 
   <center><body>
   <?php
-SESSION_START();
+session_start();
 echo $_SESSION['nome'];
-echo '<br>';
-echo $_SESSION['tipo'];
-
+echo "  ";
+if($_SESSION['tipo']==1){
+  echo "adm";
+}if($_SESSION['tipo']==2){
+  echo "gerente";
+}if($_SESSION['tipo']==3){
+  echo "funcionario";
+}if($_SESSION['tipo']==4){
+  echo "corretor";
+}if($_SESSION['tipo']==5){
+  echo "cliente";
+}
 ?>
     <form method="POST" action="consultar.php">
   		<ul>
