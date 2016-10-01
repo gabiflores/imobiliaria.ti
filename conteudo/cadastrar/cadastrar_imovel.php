@@ -131,7 +131,12 @@ if(isset($_POST['existe'])){
 	$url_video = $_POST['link'];
 	$imagem = $_FILES['imagem'];
 
-	// Se a imagem estiver sido selecionada
+	$vSql='SELECT MAX(id) FROM imoveis';
+	$midias=mysqli_query($vConexao, $vSql);
+    $midias2=mysqli_fetch_array($midias);
+    $midias2 = ($midias2[0]+1);
+    var_dump($midias2);
+    	// Se a imagem estiver sido selecionada
 		if (!empty($imagem["name"])) {
 	 
 			// Largura máxima em pixels
@@ -182,12 +187,23 @@ if(isset($_POST['existe'])){
 				move_uploaded_file($imagem["tmp_name"], $caminho_imagem);
 	 
 				$vSql='INSERT INTO imoveis (status,endereco,valores_imoveis,dormitorios,finalidade,terreno_largura,terreno_comprimento,banheiros,tipo) VALUES ("' . $status . '", "' . $endereco . '", "' . $valor . '", "' . $dormitorios . '", "' . $finalidade . '", "' . $largura . '", "' . $comprimento . '", "' . $banheiros . '", "' . $tipo . '")';
+				$vResultado = mysqli_query($vConexao, $vSql);
+				if (!$vResultado) {echo('Problemas na conexão: ' . mysqli_error($vConexao));
+			}else{echo 'sucesso';
+			}
 	
-				$vSql='INSERT INTO fotos (nome) VALUES ("' . $imagem . '");';
-				$vResultado=mysqli_query($vSql);
-				
-				$vSql='INSERT INTO videos (link) VALUES ("' . $url_video . '");';
-				$vResultado=mysqli_query($vSql);
+				$vSql='INSERT INTO fotos (nome, midias) VALUES ("' . $caminho_imagem . '", "' . $midias2 . '" );';
+				$vResultado = mysqli_query($vConexao, $vSql);
+				if (!$vResultado) {echo('Problemas na conexão: ' . mysqli_error($vConexao));
+			}else{echo 'sucesso';
+			}
+
+				$vSql='INSERT INTO videos (link, midias) VALUES ("' . $url_video . '", "' . $midias2 . '" );';
+				$vResultado = mysqli_query($vConexao, $vSql);
+				if (!$vResultado) {echo('Problemas na conexão: ' . mysqli_error($vConexao));
+			}else{echo 'sucesso';
+			}
+
 				//onde string message = mensagem retorno de erro de gravaçao de dados
 
 				// Se os dados forem inseridos com sucesso
